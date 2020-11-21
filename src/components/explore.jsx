@@ -22,7 +22,8 @@ export default function Explore(props) {
       searchMovie(props.searchQuery, pageNumber).then((res) => {
         setNumOfPages(res.total_pages);
         console.log("function called");
-        setMovies((prevMovies) => [...prevMovies, ...res.results]);
+        const movies = res.results.filter(movie => movie.title !== "The SpongeBob Movie: Sponge on the Run")
+        setMovies((prevMovies) => [...prevMovies, ...movies]);
       });
       return;
     }
@@ -39,7 +40,8 @@ export default function Explore(props) {
       getMovies(pageNumber, props.category)
         .then((res) => {
           setNumOfPages(res.data.total_pages);
-          setMovies((prevMovies) => [...prevMovies, ...res.data.results]);
+          const movies = res.data.results.filter(movie => movie.title !== "The SpongeBob Movie: Sponge on the Run")
+          setMovies((prevMovies) => [...prevMovies, ...movies]);
         })
         .catch((e) => {
           console.error();
