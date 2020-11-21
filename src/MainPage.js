@@ -48,7 +48,7 @@ export default function App() {
           {category === "search" ? (
             <>
               <div onClick={homeButton} id="btn">
-                <span class="noselect">Go Back</span>
+                <span className="noselect">Go Back</span>
                 <div id="circle"></div>
               </div>
               <Explore
