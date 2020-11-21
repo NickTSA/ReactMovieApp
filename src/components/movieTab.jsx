@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { getMovieData, getTrailer } from "../utils/api";
-import youtube from "../../img/youtube.svg";
+import youtube from "../img/youtube.svg";
 import "../../node_modules/react-modal-video/scss/modal-video.scss";
 import ModalVideo from "react-modal-video";
 let numeral = require("numeral");

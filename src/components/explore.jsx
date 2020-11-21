@@ -11,10 +11,29 @@ export default function Explore(props) {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    if (props.category === "search") {
+    if (props.searchQuery !== searchQuery) {
       setMovies([]);
       setNumOfPages(1);
       setPageNumber(1);
+      setSearchQuery(props.searchQuery)
+    }
+    if (props.category === "search" && searchQuery !== "") {
+      setSearchQuery(props.searchQuery);
+      searchMovie(props.searchQuery, pageNumber).then((res) => {
+        setNumOfPages(res.total_pages);
+        console.log("function called");
+        setMovies((prevMovies) => [...prevMovies, ...res.results]);
+      });
+      return;
+    }
+  },[props.category, props.searchQuery, pageNumber])
+
+  useEffect(() => {
+    if (props.searchQuery !== searchQuery) {
+      setMovies([]);
+      setNumOfPages(1);
+      setPageNumber(1);
+      setSearchQuery(props.searchQuery)
     }
     if (props.category !== "search" && props.category !== "") {
       getMovies(pageNumber, props.category)
@@ -26,16 +45,8 @@ export default function Explore(props) {
           console.error();
         });
     }
-    if (props.category === "search" && props.searchQuery !== "") {
-      setSearchQuery(props.searchQuery);
-      searchMovie(props.searchQuery, pageNumber).then((res) => {
-        setNumOfPages(res.total_pages);
-        console.log("function called");
-        setMovies((prevMovies) => [...prevMovies, ...res.results]);
-      });
-      return;
-    }
-  }, [pageNumber, props.searchQuery, props.category, searchQuery]);
+
+  }, [pageNumber, props.category]);
 
   const handlePageUpdate = () => {
     if (pageNumber < 10 && pageNumber < numOfPages) {

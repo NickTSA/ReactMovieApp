@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "../normalize.min.css";
-import "../styles.css";
+import "./normalize.min.css";
+import "./styles.css";
 
 import MainPage from "./MainPage";
 

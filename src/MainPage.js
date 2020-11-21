@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Explore from "./components/explore";
-import logo from "../img/dblogo.svg";
+import logo from "./img/dblogo.svg";
 import SearchBar from "./components/search";
 
 export default function App() {

@@ -9,13 +9,14 @@
   "main": "src/index.js",
   "dependencies": {
     "axios": "0.21.0",
+    "node-sass": "4.14.1",
     "numeral": "2.0.6",
     "prop-types": "15.7.2",
     "react": "17.0.0",
     "react-bidirectional-infinite-scroll": "2.0.1",
     "react-dom": "17.0.0",
     "react-modal-video": "1.2.6",
-    "react-scripts": "3.4.3"
+    "react-scripts": "^4.0.0"
   },
   "devDependencies": {
     "typescript": "3.8.3"
