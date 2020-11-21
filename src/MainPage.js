@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Explore from "./components/explore";
 import logo from "./img/dblogo.svg";
 import SearchBar from "./components/search";
